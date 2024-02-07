@@ -67,6 +67,7 @@ function App() {
   }
 
   const handleDelete = async (id) => {
+    // here fetch data first then prompt delete to the delete the data matching the object. 
     try {
         const response = await fetch(`https://json-server-vercel-seven-tau.vercel.app/transactions/${id}`, {
            method: 'DELETE'
