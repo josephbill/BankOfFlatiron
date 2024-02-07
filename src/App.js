@@ -19,7 +19,7 @@ function App() {
   useEffect(() => 
   {
       fetchTransaction();
-  }, []);
+  }, [transactions]);
 
 
   const fetchTransaction = async () => {
