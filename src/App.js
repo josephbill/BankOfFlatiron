@@ -24,7 +24,7 @@ function App() {
 
   const fetchTransaction = async () => {
         try {
-           const response = await fetch("https://json-server-vercel-seven-tau.vercel.app/transactions");
+           const response = await fetch("https://json-server-vercel-green-kappa.vercel.app/transactions");
            const data = await response.json()
            setTransactions(data);
            console.log(data)
@@ -48,7 +48,7 @@ function App() {
 
   const addTransaction = async (newTransaction) => {
       try {
-          const response = await fetch("https://json-server-vercel-seven-tau.vercel.app/transactions", {
+          const response = await fetch("https://json-server-vercel-green-kappa.vercel.app/transactions", {
              method: 'POST',
              headers: {
               'Content-Type' : 'application/json'
@@ -68,7 +68,7 @@ function App() {
 
   const handleDelete = async (id) => {
     try {
-        const response = await fetch(`https://json-server-vercel-seven-tau.vercel.app/transactions/${id}`, {
+        const response = await fetch(`https://json-server-vercel-green-kappa.vercel.app/transactions/${id}`, {
            method: 'DELETE'
                   });
         if(response.ok){

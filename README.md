@@ -16,11 +16,34 @@ APP (parent component) : responsible for maintainance of state and prop sharing 
 4. Team members proceed to clone the repository. 
 5. Task allocation amongst the team members.  (React user interfaces)
 6. Once done with assigned task each member proceeds to create a branch in the repository. 
-        git checkout -b joseph-contact-component
+        git checkout -b joseph-contact-component  (creation of a new branch)
+
 7. Each member after creation of branch should proceed to add and commit the changes then finally push to the branch(members branch)
+8. Then the scrum can proceed to merge the branches by following commands 
+
+    - git checkout(switching to an existing branch) master or main 
+    (0nly do git pull origin branchname if you merged from platform)
+    ---- merging steps ----
+    - git fetch 
+    - git merge branchname 
+    - git status 
+    - git add .
+    - git commit -m " "
+    - git push to main origin. 
 
 
 
+### VERCEL DEPLOYMENT
+vercel.com -> registering using github account.
+React
+1. Ensure there is a repository. 
+2. Import this repository to vercel. Follow steps on recording 
+
+Json-server
+1. Fork and clone this repository : https://github.com/kitloong/json-server-vercel
+2. Change db.json to your content 
+3. Push to your forked repository 
+4. Import this repository to vercel. Follow steps on recording
 
 
 
