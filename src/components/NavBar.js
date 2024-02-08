@@ -12,7 +12,6 @@ export default function NavBar(){
                 <div class="navbar-nav">
                     <a class="nav-link active" aria-current="page" href="/">Home</a>
                     <a class="nav-link" href="/add-transaction">Add Transaction</a>
-                    <a class="nav-link" href="/edit-transaction">Edit Transaction</a>
                     <a class="nav-link" href="/about">About Us</a>
                 </div>
                 </div>

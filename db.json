@@ -1,24 +1,17 @@
 {
   "transactions": [
     {
-      "id": 2,
-      "date": "2019-12-01",
-      "description": "South by Southwest Quinoa Bowl at Fresh & Co",
-      "category": "Food",
-      "amount": -10.55
-    },
-    {
       "id": 3,
       "date": "2019-12-02",
       "description": "South by Southwest Quinoa Bowl at Fresh & Co",
       "category": "Food",
-      "amount": -10.55
+      "amount": "0.55"
     },
     {
       "id": 5,
       "date": "2019-12-06",
       "description": "Venmo, Alice Pays you for Burrito",
-      "category": "Food",
+      "category": "Gift",
       "amount": 8.75
     },
     {
@@ -41,6 +34,27 @@
       "date": "2024-02-25",
       "category": "Movie",
       "id": 9
+    },
+    {
+      "description": "Apples",
+      "amount": "34",
+      "date": "2024-02-08",
+      "category": "Snack",
+      "id": 10
+    },
+    {
+      "description": "Oranges",
+      "amount": "23",
+      "date": "2024-02-08",
+      "category": "Food",
+      "id": 11
+    },
+    {
+      "description": "Sleeps for 3 nights",
+      "amount": "9000",
+      "date": "2024-02-08",
+      "category": "Accommodation",
+      "id": 12
     }
   ]
 }

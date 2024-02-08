@@ -39,7 +39,7 @@ export default function EditTransaction({toEdit, myEdit}){
     return (
        <div>
         <h2>Edit Transaction</h2>
-            <form className="form-control" onSubmit={handleEdit}>
+            <form className="form-control container" onSubmit={handleEdit}>
                 <label htmlFor="description">Description</label>
                 <input
                 type="text"
