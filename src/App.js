@@ -6,20 +6,23 @@ import AddTransactionForm from './components/AddTransactionForm';
 import { useState } from 'react';
 import "bootstrap/dist/css/bootstrap.min.css";
 import { useEffect } from 'react';
+import EditTransaction from './components/EditTransaction';
+import { Routes, Route } from 'react-router-dom';
 
 function App() {
   // state to hold transactions 
   const [transactions, setTransactions] = useState([]);
   //using a copy of the search value
   const [term,setTerm] = useState('');
-  const [sortType, setSortType] = useState(null); 
+  const [sortType, setSortType] = useState(null);
+  const [editedTransaction, setEditedTransaction] = useState({})
 
 
   // as the component mounts , this will run initially 
   useEffect(() => 
   {
       fetchTransaction();
-  }, [transactions]);
+  }, []);
 
 
   const fetchTransaction = async () => {
@@ -27,8 +30,8 @@ function App() {
            const response = await fetch("https://json-server-vercel-seven-tau.vercel.app/transactions");
            const data = await response.json()
            setTransactions(data);
-           console.log(data)
-           console.log(transactions)
+          //  console.log(data)
+          //  console.log(transactions)
         } catch(error) {
             console.log("Error fetching transaction " , error);
         }
@@ -82,6 +85,40 @@ function App() {
     }
 }
 
+  const handleEdit = async (id) => {
+    const response = await fetch(`https://json-server-vercel-seven-tau.vercel.app/transactions/${id}`)
+    const transaction = await response.json()
+    setEditedTransaction(transaction)
+  }
+
+  const updateTransaction = async (transObj) => {
+    const myTransactions = transactions.map(trans => {
+      if(trans.id === transObj.id){
+        return transObj
+      }else{
+        return trans
+      }
+    })
+    setTransactions(myTransactions)
+    fetchAndUpdate(transObj)
+  }
+
+  const fetchAndUpdate = async (transaction) => {
+    const obj = {
+      method: "PATCH",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+          description: transaction.description,
+          amount: transaction.amount,
+          date: transaction.date,
+          category: transaction.category
+      })
+    }
+    const res = await fetch(`https://json-server-vercel-seven-tau.vercel.app/transactions/${transaction.id}`,obj)
+  }
+
 //sort function 
 const handleSort = (type) => {
    if(sortType === type){
@@ -118,8 +155,16 @@ const handleSort = (type) => {
         <button  style={{
           margin: 10
         }} className='btn btn-primary' onClick={() => handleSort('description')}>Sort by Description</button>
-        <TransactionTable transactions={filteredTransactions} onDelete={handleDelete}/>
+        <TransactionTable transactions={filteredTransactions} onDelete={handleDelete} onEdit={handleEdit}/>
+
+        {/* <Routes>
+          <Route path='/add-transaction'>
+          
+          </Route>
+        </Routes> */}
         <AddTransactionForm onAdd={addTransaction}/>
+
+        <EditTransaction toEdit={editedTransaction} myEdit={updateTransaction}/>
     </div>
   );
 }
