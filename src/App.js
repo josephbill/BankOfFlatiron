@@ -7,7 +7,9 @@ import { useState } from 'react';
 import "bootstrap/dist/css/bootstrap.min.css";
 import { useEffect } from 'react';
 import EditTransaction from './components/EditTransaction';
-import { Routes, Route } from 'react-router-dom';
+import { Switch, Route } from 'react-router-dom';
+import About from './components/About';
+import NavBar from './components/NavBar';
 
 function App() {
   // state to hold transactions 
@@ -27,7 +29,7 @@ function App() {
 
   const fetchTransaction = async () => {
         try {
-           const response = await fetch("https://json-server-vercel-seven-tau.vercel.app/transactions");
+           const response = await fetch("http://localhost:4000/transactions");
            const data = await response.json()
            setTransactions(data);
           //  console.log(data)
@@ -51,7 +53,7 @@ function App() {
 
   const addTransaction = async (newTransaction) => {
       try {
-          const response = await fetch("https://json-server-vercel-seven-tau.vercel.app/transactions", {
+          const response = await fetch("http://localhost:4000/transactions", {
              method: 'POST',
              headers: {
               'Content-Type' : 'application/json'
@@ -71,7 +73,7 @@ function App() {
 
   const handleDelete = async (id) => {
     try {
-        const response = await fetch(`https://json-server-vercel-seven-tau.vercel.app/transactions/${id}`, {
+        const response = await fetch(`http://localhost:4000/transactions/${id}`, {
            method: 'DELETE'
                   });
         if(response.ok){
@@ -86,7 +88,7 @@ function App() {
 }
 
   const handleEdit = async (id) => {
-    const response = await fetch(`https://json-server-vercel-seven-tau.vercel.app/transactions/${id}`)
+    const response = await fetch(`http://localhost:4000/transactions/${id}`)
     const transaction = await response.json()
     setEditedTransaction(transaction)
   }
@@ -116,7 +118,7 @@ function App() {
           category: transaction.category
       })
     }
-    const res = await fetch(`https://json-server-vercel-seven-tau.vercel.app/transactions/${transaction.id}`,obj)
+    const res = await fetch(`http://localhost:4000/transactions/${transaction.id}`,obj)
   }
 
 //sort function 
@@ -136,35 +138,40 @@ const handleSort = (type) => {
     setTransactions(sortedTransactions)
 
    }
-
-
 }
-
 
   return (
     <div className="App">
-        <h2>Bank Of FlatIron</h2>
-        <SearchBar onSearch={handleSearch} />
-        <br></br>
-        <button style={{
-          margin: 10
-        }} className='btn btn-primary' onClick={() => handleSort(null)}>Clear Sort</button>
-        <button  style={{
-          margin: 10
-        }} className='btn btn-primary' onClick={() => handleSort('category')}>Sort by Category</button>
-        <button  style={{
-          margin: 10
-        }} className='btn btn-primary' onClick={() => handleSort('description')}>Sort by Description</button>
-        <TransactionTable transactions={filteredTransactions} onDelete={handleDelete} onEdit={handleEdit}/>
 
-        {/* <Routes>
-          <Route path='/add-transaction'>
-          
+          <Route path="/">
+            <NavBar />
+            <h2>Bank Of FlatIron</h2>
+            <SearchBar onSearch={handleSearch} />
+            <br></br>
+            <button style={{
+              margin: 10
+            }} className='btn btn-primary' onClick={() => handleSort(null)}>Clear Sort</button>
+            <button  style={{
+              margin: 10
+            }} className='btn btn-primary' onClick={() => handleSort('category')}>Sort by Category</button>
+            <button  style={{
+              margin: 10
+            }} className='btn btn-primary' onClick={() => handleSort('description')}>Sort by Description</button>
+            <TransactionTable transactions={filteredTransactions} onDelete={handleDelete} onEdit={handleEdit}/>
           </Route>
-        </Routes> */}
-        <AddTransactionForm onAdd={addTransaction}/>
 
-        <EditTransaction toEdit={editedTransaction} myEdit={updateTransaction}/>
+          <Route path="/add-transaction">
+          <AddTransactionForm onAdd={addTransaction}/>
+          </Route>
+
+          <Route path="/edit-transaction">
+          <EditTransaction toEdit={editedTransaction} myEdit={updateTransaction}/>
+          </Route>
+
+          <Route path="/about">
+            <About />
+          </Route>
+
     </div>
   );
 }

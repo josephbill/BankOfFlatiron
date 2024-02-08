@@ -41,13 +41,6 @@
       "date": "2024-02-25",
       "category": "Movie",
       "id": 9
-    },
-    {
-      "description": "New movie",
-      "amount": "1500",
-      "date": "2024-02-13",
-      "category": "Movie",
-      "id": 10
     }
   ]
 }
