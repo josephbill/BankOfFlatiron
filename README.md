@@ -46,8 +46,75 @@ Json-server
 4. Import this repository to vercel. Follow steps on recording
 
 
+### CLient Side Routing 
+Client side routing allows the app to update the URL on a link click without making a new request for another document from the server unlike traditional websites that would request documents from the web server for each new click event(Link acess)
+
+### React Router : Defacto routing lib. 
+this lib provides a declarative way to define routes and seamlessly manage navigation between different 
+components 
+Uses three main concepts to create a cohesive routing experience.
+- Router : Browser router will give access to all react router features in the app
+- Routes : Create the route links for our component  
+- Links 
+
+1. Improved Performance : eliminates full page reloads 
+2. Enhanced User Experience 
+3. Allows for code splitting and Lazy loading. 
+4. Route-based data fetching 
 
 
+Steps 
+1. Install react router dom 
+2. Import BrowserRouter from react-router-dom. Inside index.js wrap the top level component 
+3. In the main component create routes for the components you wish to have route links for.
 
 
+A,B,C,D,E   :::   A (value)(B)  ::  (B)(C) :: (C)(D) : (D)(E) :: E   :: I WANT VALUE FROM A TO REACH E
 
+components :: prop drilling 
+function A () {
+    const [x,setX] = useState('something like this')
+    return(
+        <>
+          <B propx={x}>
+        </>
+    )
+}
+
+
+function B ({propx}) {
+    return(
+        <>
+          <C propx={propx}>
+        </>
+    )
+}
+
+
+function C ({propx}) {
+    return(
+        <>
+          <D propx={propx}>
+        </>
+    )
+}
+
+function D ({propx}) {
+    return(
+        <>
+          <E propx={propx}>
+        </>
+    )
+}
+
+function E ({propx}) {
+    //this state is unique , 
+    const [x,setX] = useState('something like this')
+    return(
+        <>
+          <p>{propx}</p>
+        </>
+    )
+}
+
+React brings in the Context API accessed using the useContext hook to manage state globally. :: useContext()
