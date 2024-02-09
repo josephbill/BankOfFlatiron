@@ -5,7 +5,7 @@
       "date": "2019-12-02",
       "description": "South by Southwest Quinoa Bowl at Fresh & Company",
       "category": "Food",
-      "amount": "0.55"
+      "amount": "200"
     },
     {
       "id": 5,
@@ -24,7 +24,7 @@
     {
       "id": 8,
       "date": "2019-12-09",
-      "description": "Uber Ride",
+      "description": "Lyft Ride",
       "category": "Transportation",
       "amount": -13.25
     },
@@ -43,18 +43,25 @@
       "id": 10
     },
     {
-      "description": "Oranges",
-      "amount": "23",
-      "date": "2024-02-29",
-      "category": "Food",
-      "id": 11
-    },
-    {
       "description": "Sleeps for 4 nights",
       "amount": "9000",
       "date": "2024-02-08",
       "category": "Accommodation",
       "id": 12
+    },
+    {
+      "description": "House Rent",
+      "amount": "11000",
+      "date": "2024-02-09",
+      "category": "Accommodation",
+      "id": 13
+    },
+    {
+      "description": "Watch a movie",
+      "amount": "1200",
+      "date": "2024-02-08",
+      "category": "Entertainment",
+      "id": 14
     }
   ]
 }

@@ -161,9 +161,9 @@ const handleSort = (type) => {
           <button  style={{
             margin: 10
           }} className='btn btn-info' onClick={() => setDisplayAddForm(!displayAddForm)}>Toggle Add Form</button>
-          <TransactionTable transactions={filteredTransactions} onDelete={handleDelete} onEdit={handleEdit} displayForm={setDisplayEditForm}/>
           {displayEditForm ? <EditTransaction toEdit={editedTransaction} myEdit={updateTransaction}/> : null}
           {displayAddForm ? <AddTransactionForm onAdd={addTransaction}/>: null}
+          <TransactionTable transactions={filteredTransactions} onDelete={handleDelete} onEdit={handleEdit} displayForm={setDisplayEditForm}/>
     </div>
   );
 }
