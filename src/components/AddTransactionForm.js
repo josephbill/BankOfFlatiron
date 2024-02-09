@@ -1,6 +1,6 @@
 import { useState } from "react"
 
-export default function AddTransactionForm({onAdd}){
+export default function AddTransactionForm({onAdd, displayForm}){
 
   const [newTransaction, setNewTransaction] = useState({
       description: '',
@@ -20,6 +20,9 @@ export default function AddTransactionForm({onAdd}){
        onAdd(newTransaction);
        // resetting the input box
        setNewTransaction({description: '' , amount: '' , date: '' , category: ''})
+       //set add form to false to hide it
+       displayForm(false)
+
   }
      return (
         <>

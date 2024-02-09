@@ -4,7 +4,8 @@ import { Table } from "react-bootstrap"
 export default function TransactionTable({transactions, onDelete, onEdit, displayForm}){
 
    const handleDelete = (id) => {
-          onDelete(id)
+      if( !confirm("Do you want to delete the transaction?") ) return alert("Transaction was not deleted.")
+      onDelete(id)
    }
 
    const handleEdit = (id) => {
