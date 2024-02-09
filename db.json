@@ -3,7 +3,7 @@
     {
       "id": 3,
       "date": "2019-12-02",
-      "description": "South by Southwest Quinoa Bowl at Fresh & Co",
+      "description": "South by Southwest Quinoa Bowl at Fresh & Company",
       "category": "Food",
       "amount": "0.55"
     },
@@ -12,7 +12,7 @@
       "date": "2019-12-06",
       "description": "Venmo, Alice Pays you for Burrito",
       "category": "Gift",
-      "amount": 8.75
+      "amount": "885"
     },
     {
       "id": 7,
@@ -24,7 +24,7 @@
     {
       "id": 8,
       "date": "2019-12-09",
-      "description": "Lyft Ride",
+      "description": "Uber Ride",
       "category": "Transportation",
       "amount": -13.25
     },
@@ -45,12 +45,12 @@
     {
       "description": "Oranges",
       "amount": "23",
-      "date": "2024-02-08",
+      "date": "2024-02-29",
       "category": "Food",
       "id": 11
     },
     {
-      "description": "Sleeps for 3 nights",
+      "description": "Sleeps for 4 nights",
       "amount": "9000",
       "date": "2024-02-08",
       "category": "Accommodation",

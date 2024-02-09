@@ -17,6 +17,8 @@ function Home() {
   const [sortType, setSortType] = useState(null);
   const [editedTransaction, setEditedTransaction] = useState({})
   const [displayEditForm, setDisplayEditForm] = useState(false)
+  const [displayAddForm, setDisplayAddForm] = useState(false)
+
 
 
   // as the component mounts , this will run initially 
@@ -102,6 +104,8 @@ function Home() {
     })
     setTransactions(myTransactions)
     fetchAndUpdate(transObj)
+      //Hide Form
+    setDisplayEditForm(false)
   }
 
   const fetchAndUpdate = async (transaction) => {
@@ -156,10 +160,10 @@ const handleSort = (type) => {
           }} className='btn btn-primary' onClick={() => handleSort('description')}>Sort by Description</button>
           <button  style={{
             margin: 10
-          }} className='btn btn-info' onClick={() => setDisplayEditForm(!displayEditForm)}>Toggle Edit Form</button>
-          <TransactionTable transactions={filteredTransactions} onDelete={handleDelete} onEdit={handleEdit}/>
+          }} className='btn btn-info' onClick={() => setDisplayAddForm(!displayAddForm)}>Toggle Add Form</button>
+          <TransactionTable transactions={filteredTransactions} onDelete={handleDelete} onEdit={handleEdit} displayForm={setDisplayEditForm}/>
           {displayEditForm ? <EditTransaction toEdit={editedTransaction} myEdit={updateTransaction}/> : null}
-          <AddTransactionForm onAdd={addTransaction}/>
+          {displayAddForm ? <AddTransactionForm onAdd={addTransaction}/>: null}
     </div>
   );
 }
